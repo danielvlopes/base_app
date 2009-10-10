@@ -32,6 +32,7 @@ run "curl -L http://github.com/danielvlopes/base_app/raw/master/public/images/ua
 run "curl -L http://github.com/danielvlopes/base_app/raw/master/public/images/ua_ie.jpg > public/images/ua_ie.jpg"
 run "curl -L http://github.com/danielvlopes/base_app/raw/master/public/images/ua_op.jpg > public/images/ua_op.jpg"
 run "curl -L http://github.com/danielvlopes/base_app/raw/master/public/images/ua_sf.jpg > public/images/ua_sf.jpg"
+run "mkdir public/javascripts/lib public/javascripts/plugins"
 
 # commands
 run "rm README"
