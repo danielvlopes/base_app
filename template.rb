@@ -27,11 +27,11 @@ file "app/helpers/application_helper.rb", open("http://github.com/danielvlopes/b
 file "public/stylesheets/application.css", open("http://github.com/danielvlopes/base_app/raw/master/public/stylesheets/application.css").read
 file "public/stylesheets/global.css", open("http://github.com/danielvlopes/base_app/raw/master/public/stylesheets/global.css").read
 run "curl -L http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js > public/javascripts/jquery.js"
-run "curl -L http://github.com/danielvlopes/base_app/raw/master/images/ua_ch.jpg > public/images/ua_ch.jpg"
-run "curl -L http://github.com/danielvlopes/base_app/raw/master/images/ua_ff.jpg > public/images/ua_ff.jpg"
-run "curl -L http://github.com/danielvlopes/base_app/raw/master/images/ua_ie.jpg > public/images/ua_ie.jpg"
-run "curl -L http://github.com/danielvlopes/base_app/raw/master/images/ua_op.jpg > public/images/ua_op.jpg"
-run "curl -L http://github.com/danielvlopes/base_app/raw/master/images/ua_sf.jpg > public/images/ua_sf.jpg"
+run "curl -L http://github.com/danielvlopes/base_app/raw/master/public/images/ua_ch.jpg > public/images/ua_ch.jpg"
+run "curl -L http://github.com/danielvlopes/base_app/raw/master/public/images/ua_ff.jpg > public/images/ua_ff.jpg"
+run "curl -L http://github.com/danielvlopes/base_app/raw/master/public/images/ua_ie.jpg > public/images/ua_ie.jpg"
+run "curl -L http://github.com/danielvlopes/base_app/raw/master/public/images/ua_op.jpg > public/images/ua_op.jpg"
+run "curl -L http://github.com/danielvlopes/base_app/raw/master/public/images/ua_sf.jpg > public/images/ua_sf.jpg"
 
 # commands
 run "rm README"
