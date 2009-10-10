@@ -21,7 +21,7 @@ generate 'rspec'
 file "config/locales/pt-BR.yml", open("http://github.com/svenfuchs/rails-i18n/raw/master/rails/locale/pt-BR.yml").read
 
 # app folders
-file "app/view/layouts/application.html.erb", open("http://github.com/danielvlopes/base_app/raw/master/app/views/layouts/application.html.erb").read
+file "app/views/layouts/application.html.erb", open("http://github.com/danielvlopes/base_app/raw/master/app/views/layouts/application.html.erb").read
 file "app/helpers/application_helper.rb", open("http://github.com/danielvlopes/base_app/raw/master/app/helpers/application_helper.rb").read
 
 # public folder
