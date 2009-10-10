@@ -62,7 +62,6 @@ END
 git :init
 git :add => '.'
 
-# capistrano
-capify! if yes?("Do you want to use Capistrano?")
+capify!
 
 puts "SUCCESS!"
