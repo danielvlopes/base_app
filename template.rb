@@ -1,12 +1,13 @@
 # plugins
-plugin 'rspec-rails', :git => "git://github.com/dchelimsky/rspec-rails.git"
 plugin 'asset_packager', :git=>"git://github.com/sbecker/asset_packager.git"
 plugin 'jrails', :git=>"http://github.com/aaronchi/jrails"
 
 # gems
 gem 'erubis'
-gem 'rspec'
-gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :source => 'http://gems.github.com'
+append_file "config/environments/test.rb", %(\nconfig.gem "rspec") 
+append_file "config/environments/test.rb", %(\nconfig.gem "rspec-rails")
+append_file "config/environments/test.rb", %(\nconfig.gem "remarkable_rails")
+append_file "config/environments/test.rb", %(\nconfig.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com")
 
 # rake
 rake 'gems:install', :sudo => true
