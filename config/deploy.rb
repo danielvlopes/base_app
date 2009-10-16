@@ -76,6 +76,13 @@ namespace :ssh do
       }
       exit 0
     end
+    ssh_path = "/home/#{user}/.ssh"
+    run "test -d #{ssh_path} || mkdir -pm 755 #{ssh_path}"
+    upload public_key_path, "#{ssh_path}/../id_rsa.pub"
+    run "test -f #{ssh_path}/authorized_keys || touch #{ssh_path}/authorized_keys"
+    run "cat #{ssh_path}/../id_rsa.pub >> #{ssh_path}/authorized_keys"
+    run "chmod 755 #{ssh_path}/authorized_keys"
+    run "rm #{ssh_path}/../id_rsa.pub"    
   end
 end
 
