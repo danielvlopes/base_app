@@ -22,6 +22,11 @@ role :web, domain_name
 role :db,  domain_name, :primary => true
 
 #TASKS
+task :after_update_code, :roles => [:web, :db, :app] do
+  run "chmod 755 #{release_path}/public"
+  db.upload_database_yaml
+end
+
 namespace :deploy do
   # Restart passenger on deploy
   desc "Restarting mod_rails with restart.txt"
