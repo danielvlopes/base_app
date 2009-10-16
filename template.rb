@@ -19,6 +19,9 @@ generate 'rspec'
 
 # config
 file "config/locales/pt-BR.yml", open("http://github.com/svenfuchs/rails-i18n/raw/master/rails/locale/pt-BR.yml").read
+
+# capistrano
+capify!
 file "config/deploy.rb", open("http://github.com/danielvlopes/base_app/raw/master/config/deploy.rb").read
 
 # app folders
@@ -63,7 +66,5 @@ END
 
 git :init
 git :add => '.'
-
-capify!
 
 puts "SUCCESS!"
