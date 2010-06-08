@@ -11,7 +11,6 @@ group :test do
   gem "rspec", ">=2.0.0.beta.11"
   gem "rspec-rails", ">=2.0.0.beta.11"
   gem 'capybara'
-  gem 'capybara-envjs'
   gem 'database_cleaner'
   gem 'factory_girl'
   gem 'steak', '>= 0.4.0.a5'
