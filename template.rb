@@ -13,7 +13,7 @@ get "http://github.com/danielvlopes/base_app/raw/master/lib/backup.rb", "lib/bac
 get "http://github.com/danielvlopes/base_app/raw/master/app/views/layouts/maintenance.html.erb", "app/views/layouts/maintenance.html.erb"
 get "http://github.com/danielvlopes/base_app/raw/master/app/views/layouts/application.html.erb", "app/views/layouts/application.html.erb"
 get "http://github.com/danielvlopes/base_app/raw/master/app/helpers/application_helper.rb", "app/helpers/application_helper.rb"
-
+ 
 # public folder
 run "rm -Rf public/index.html"
 get "http://github.com/danielvlopes/base_app/raw/master/public/stylesheets/application.css", "public/stylesheets/application.css"
@@ -25,7 +25,7 @@ get "http://github.com/danielvlopes/base_app/raw/master/public/images/ua_op.jpg"
 get "http://github.com/danielvlopes/base_app/raw/master/public/images/ua_sf.jpg", "public/images/ua_sf.jpg"
 get "http://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
 run "mkdir public/javascripts/lib public/javascripts/plugins"
-
+ 
 # test
 generate "rspec:install"
 generate "steak"
