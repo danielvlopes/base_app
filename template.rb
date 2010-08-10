@@ -25,7 +25,11 @@ get "http://github.com/danielvlopes/base_app/raw/master/public/images/ua_op.jpg"
 get "http://github.com/danielvlopes/base_app/raw/master/public/images/ua_sf.jpg", "public/images/ua_sf.jpg"
 get "http://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
 run "mkdir public/javascripts/lib public/javascripts/plugins"
- 
+
+# scaffold customization
+run "mkdir lib/templates/rails/scaffold_controller"
+get "http://github.com/danielvlopes/base_app/raw/master/lib/templates/rails/scaffold_controller", "lib/templates/rails/scaffold_controller/controller.rb"
+
 # test
 generate "rspec:install"
 generate "steak"
