@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Maintenance</title>
+    <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+    <style type="text/css" media="screen">
+      html, body {
+        color: black;
+        font-family: verdana, helvetica, arial, sans-serif;
+        font-size:12px;
+        margin: 0;
+        padding: 0;
+        width:100%;
+        height:100%;
+        background:#E0E1E3; }
+
+      h1 {
+        color:#487dac;
+        font-weight:bold;
+        font-family:Verdana;
+        font-size:20px;
+        margin:0px;
+        padding:0px; }
+
+      div.notification {
+        position:absolute;
+        margin: 30px auto;
+        left: 50%;
+        top: 50%;
+        width: 520px;
+        background: #fff;
+        margin-top: -300px;
+        margin-left: -260px;
+      }
+
+      div.notification div.inner { padding: 20px; text-align:center; }
+
+      div.notification h1 { font-size: 18px; margin: 0 0 18px 0; padding: 10px; }
+
+      div.notification p {
+        margin: 0 0 14px 0;
+        font-size: 14px;
+        line-height: 140%;
+      }
+    </style>
+</head>
+
+<body>
+
+<div class="notification">
+  <div class="inner">
+    <h1>We're in maintenance</h1>
+    <p>Our service is offline for <%= reason ? reason : "maintenance" %> since <%= Time.now.strftime("%H:%M %Z") %>. <p>
+    <p>We'll be back <%= deadline ? deadline : "as soon as possible" %>.</p>
+  </div>
+</div>
+
+</body>
+</html>

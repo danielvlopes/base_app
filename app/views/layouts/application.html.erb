@@ -4,29 +4,34 @@
   <title>Title <%= yield(:title) %></title>
   <%= favicon %>
 
-  <%= stylesheet_link_tag :all %>
-  <%= yield :stylesheets %>
-
-  <%= javascript_include_tag :defaults %>
-  <%= yield :javascripts %>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag  "vendor/jquery", "vendor/jquery-ui", "vendor/jquery.placeholder", "rails" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
   <!--[if lte IE 7]>
+  <script defer type="text/javascript" src="js/pngfix.js"></script>
+
   <div class="notSupportedBrowser important">
     <p>
-      <strong>Seu navegador está desatualizado. Baixe a nova versão <%= link_to image_tag("ua_ie.jpg", :class=>"middle"), "http://www.microsoft.com/windows/internet-explorer", :target=>"_blank" %>
+      <strong>Seu navegador está desatualizado. Baixe a nova versão
+      <%= link_to image_tag("ua_ie.jpg", :class => "middle"),
+            "http://www.microsoft.com/windows/internet-explorer", :target => "_blank" %>
       ou escolha outro suportado:</strong>
-      <%= link_to image_tag("ua_ff.jpg", :class=>"middle"), "http://www.mozilla.com/", :popup=>true %>
-      <%= link_to image_tag("ua_sf.jpg", :class=>"middle"), "http://www.apple.com/safari/", :popup=>true %>
-      <%= link_to image_tag("ua_ch.jpg", :class=>"middle"), "http://www.google.com/chrome", :popup=>true %>
-      <%= link_to image_tag("ua_op.jpg", :class=>"middle"), "http://www.opera.com/", :popup=>true %>
+      <%= link_to image_tag("ua_ff.jpg", :class => "middle"), "http://www.mozilla.com/", :popup => true %>
+      <%= link_to image_tag("ua_sf.jpg", :class => "middle"), "http://www.apple.com/safari/", :popup => true %>
+      <%= link_to image_tag("ua_ch.jpg", :class => "middle"), "http://www.google.com/chrome/", :popup => true %>
+      <%= link_to image_tag("ua_op.jpg", :class => "middle"), "http://www.opera.com/", :popup => true %>
     </p>
   </div>
   <![endif]-->
 
-  <%= flash_notices %>
-  <%= yield :layout %>
+  <div id="wrapper">
+    <%= flash_notices %>
+    <%= yield :layout %>
+  </div>
+
   <%= yield :bottom %>
+  <%= analytics "UA-XXXXX" %>
 </body>
 </html>

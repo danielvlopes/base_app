@@ -1,0 +1,22 @@
+base: &base
+  adapter: sqlite3
+  timeout: 5000
+
+development:
+  database: #{shared_path}/db/development.sqlite3
+  <<: *base
+
+test:
+  database: #{shared_path}/db/test.sqlite3
+  <<: *base
+
+production:
+  adapter: mysql
+  database: #{application}_production
+  username: #{user}
+  password: #{Capistrano::CLI.ui.ask("Enter database password: ")}
+  host: localhost
+  encoding: utf8
+  reconnect: true
+  pool: 15
+  timeout: 5000 

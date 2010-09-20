@@ -1,34 +1,72 @@
+def get_file(file)
+  get "#{base_app_url}/#{file}", file
+end
+
+def base_app_url
+  "http://github.com/danielvlopes/base_app/raw/master"
+end
+
 # bundler
 run "rm -Rf Gemfile"
-get "http://github.com/danielvlopes/base_app/raw/master/Gemfile", "Gemfile"
+get_file "Gemfile"
 run "bundle install"
 
 # capistrano
-capify!
-get "http://github.com/danielvlopes/base_app/raw/master/config/deploy.rb", "config/deploy.rb"
+get_file "Capfile"
+get_file "config/deploy.rb"
+
+run "mkdir config/deploy/templates"
+
+get_file "config/deploy/templates/database.yml.erb"
+get_file "config/deploy/templates/hoptoad.rb.erb"
+get_file "config/deploy/templates/maintenance.html.erb"
+get_file "config/deploy/templates/newrelic.yml.erb"
+get_file "config/deploy/templates/smtp.rb.erb"
+
+run "mkdir config/deploy/recipes"
+
+get_file "config/deploy/recipes/log.rb"
+get_file "config/deploy/recipes/setup.rb"
+get_file "config/deploy/recipes/passenger.rb"
+get_file "config/deploy/recipes/maintenance.rb"
 
 # other downloads
-get "http://github.com/danielvlopes/base_app/raw/master/config/locales/pt-BR.yml", "config/locales/pt-BR.yml"
-get "http://github.com/danielvlopes/base_app/raw/master/lib/backup.rb", "lib/backup.rb"
-get "http://github.com/danielvlopes/base_app/raw/master/app/views/layouts/maintenance.html.erb", "app/views/layouts/maintenance.html.erb"
-get "http://github.com/danielvlopes/base_app/raw/master/app/views/layouts/application.html.erb", "app/views/layouts/application.html.erb"
-get "http://github.com/danielvlopes/base_app/raw/master/app/helpers/application_helper.rb", "app/helpers/application_helper.rb"
- 
+get_file "config/locales/pt-BR.yml"
+get_file "lib/backup.rb"
+get_file "app/views/layouts/maintenance.html.erb"
+get_file "app/views/layouts/application.html.erb"
+get_file "app/helpers/application_helper.rb"
+
 # public folder
 run "rm -Rf public/index.html"
-get "http://github.com/danielvlopes/base_app/raw/master/public/stylesheets/application.css", "public/stylesheets/application.css"
-get "http://github.com/danielvlopes/base_app/raw/master/public/stylesheets/global.css", "public/stylesheets/global.css"
-get "http://github.com/danielvlopes/base_app/raw/master/public/images/ua_ch.jpg", "public/images/ua_ch.jpg"
-get "http://github.com/danielvlopes/base_app/raw/master/public/images/ua_ff.jpg", "public/images/ua_ff.jpg"
-get "http://github.com/danielvlopes/base_app/raw/master/public/images/ua_ie.jpg", "public/images/ua_ie.jpg"
-get "http://github.com/danielvlopes/base_app/raw/master/public/images/ua_op.jpg", "public/images/ua_op.jpg"
-get "http://github.com/danielvlopes/base_app/raw/master/public/images/ua_sf.jpg", "public/images/ua_sf.jpg"
+run "rm -Rf public/javascripts"
+run "rm -Rf public/stylesheets"
+
+run "mkdir public/javascripts public/stylesheets"
+
+get_file "public/stylesheets/application.css"
+get_file "public/stylesheets/global.css"
+
+get_file "public/images/alert.png"
+get_file "public/images/error.png"
+get_file "public/images/notice.png"
+get_file "public/images/ua_ch.jpg"
+get_file "public/images/ua_ff.jpg"
+get_file "public/images/ua_ie.jpg"
+get_file "public/images/ua_op.jpg"
+get_file "public/images/ua_sf.jpg"
+
 get "http://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
-run "mkdir public/javascripts/lib public/javascripts/plugins"
+
+run "mkdir public/javascripts/app public/javascripts/vendor"
+
+get_file "public/javascripts/vendor/PIE.htc"
+get_file "public/javascripts/vendor/png.fix"
+get_file "public/javascripts/vendor/jquery.placeholder.js"
 
 # scaffold customization
 run "mkdir lib/templates/rails/scaffold_controller"
-get "http://github.com/danielvlopes/base_app/raw/master/lib/templates/rails/scaffold_controller", "lib/templates/rails/scaffold_controller/controller.rb"
+get_file "lib/templates/rails/scaffold_controller/controller.rb"
 
 # test
 generate "rspec:install"
