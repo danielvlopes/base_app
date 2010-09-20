@@ -41,11 +41,11 @@ get_file "app/helpers/application_helper.rb"
 run "rm -Rf public/index.html"
 run "rm -Rf public/javascripts"
 run "rm -Rf public/stylesheets"
-
 run "mkdir public/javascripts public/stylesheets"
 
 get_file "public/stylesheets/application.css"
-get_file "public/stylesheets/global.css"
+get_file "public/stylesheets/common.css"
+get_file "public/stylesheets/reset.css"
 
 get_file "public/images/alert.png"
 get_file "public/images/error.png"
