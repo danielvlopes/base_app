@@ -1,0 +1,14 @@
+<% if resource.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= resource.errors.count %> error(s) prohibited this
+      <%= resource.class.model_name.human %> from being saved:
+    </h2>
+
+    <ul>
+    <% resource.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

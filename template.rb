@@ -6,11 +6,6 @@ def base_app_url
   "http://github.com/danielvlopes/base_app/raw/master"
 end
 
-# bundler
-# run "rm -Rf Gemfile"
-# get_file "Gemfile"
-# run "bundle install"
-
 # capistrano
 get_file "Capfile"
 get_file "config/deploy.rb"
@@ -34,6 +29,9 @@ get_file "config/deploy/recipes/maintenance.rb"
 get_file "config/locales/pt-BR.yml"
 get_file "app/views/layouts/application.html.erb"
 get_file "app/helpers/application_helper.rb"
+
+run "mkdir -p app/views/shared"
+get_file "app/views/shared/_error_messages.html.erb"
 
 # public folder
 run "rm -Rf public/index.html"

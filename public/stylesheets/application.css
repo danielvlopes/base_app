@@ -1,3 +1,22 @@
 @import "reset.css";
 @import "common.css";
 
+body {
+  font-size: 14px;
+  font-family: Lucida Grande, Lucida Sans Unicode, verdana, helvetica, arial, sans-serif;
+  text-align:center;
+}
+
+h1, h2, h3, h4, h5, h6 { margin: 10px 0 10px 0; }
+p, pre, blockquote, label, ul, ol, dl, fieldset, address { margin:1em 0; }
+
+h1 { font-size: 30px; }
+h2 { font-size: 25px; }
+h3 { font-size: 20px; }
+
+p { margin: }
+
+#wrapper {
+  padding:10px;
+  text-align:left;
+}
