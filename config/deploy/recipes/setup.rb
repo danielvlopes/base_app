@@ -1,5 +1,5 @@
 namespace :deploy do
-  namespace :setup do
+  namespace :config do
 
     namespace :mail do
       desc "Write smtp.rb on shared"
@@ -80,12 +80,12 @@ namespace :deploy do
       or /config/deploy folders. The default template matches \
       the template for config/database.yml file shipped with Rails.
 
-      When this recipe is loaded, db:setup is automatically configured \
-      to be invoked after deploy:setup. You can skip this task setting \
-      the variable :skip_db_setup to true. This is especially useful \
-      if you are using this recipe in combination with \
-      capistrano-ext/multistaging to avoid multiple db:setup calls \
-      when running deploy:setup for all stages one by one.
+    When this recipe is loaded, db:setup is automatically configured \
+    to be invoked after deploy:setup. You can skip this task setting \
+    the variable :skip_db_setup to true. This is especially useful \
+    if you are using this recipe in combination with \
+    capistrano-ext/multistaging to avoid multiple db:setup calls \
+    when running deploy:setup for all stages one by one.
       DESC
       task :create, :except => { :no_release => true } do
 
@@ -125,15 +125,15 @@ namespace :deploy do
 end
 
 after "deploy:setup" do
-  deploy.setup.mail.create      unless fetch(:skip_mail_setup, false)
-  deploy.setup.newrelic.create  unless fetch(:skip_newrelic_setup, false)
-  deploy.setup.hoptoad.create   unless fetch(:skip_hoptoad_setup, false)
-  deploy.setup.db.create        unless fetch(:skip_db_setup, false)
+  deploy.config.mail.create      unless fetch(:skip_mail_setup, false)
+  deploy.config.newrelic.create  unless fetch(:skip_newrelic_setup, false)
+  deploy.config.hoptoad.create   unless fetch(:skip_hoptoad_setup, false)
+  deploy.config.db.create        unless fetch(:skip_db_setup, false)
 end
 
 after "deploy:finalize_update" do
-  deploy.setup.newrelic.symlink
-  deploy.setup.mail.symlink
-  deploy.setup.hoptoad.symlink
-  deploy.setup.db.symlink
+  deploy.config.newrelic.symlink
+  deploy.config.mail.symlink
+  deploy.config.hoptoad.symlink
+  deploy.config.db.symlink
 end
