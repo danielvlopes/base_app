@@ -1,0 +1,15 @@
+= base_app
+
+Template for Rails 3.0 apps
+
+== Usage
+
+rails new app -m http://github.com/danielvlopes/base_app/raw/master/template.rb
+
+== License
+
+This project is released under the MIT License, including all CSS and design stuffs.
+
+== Copyright
+
+Copyright (c) 2010 Daniel Lopes. See LICENSE for details.
