@@ -3,7 +3,7 @@ def get_file(file)
 end
 
 def base_app_url
-  "http://github.com/danielvlopes/base_app/raw/master"
+  File.dirname(__FILE__)
 end
 
 # bundler
