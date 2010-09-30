@@ -3,7 +3,7 @@ def get_file(file)
 end
 
 def base_app_url
-  File.dirname(__FILE__)
+  "http://github.com/danielvlopes/base_app/raw/master"
 end
 
 # bundler
@@ -84,8 +84,7 @@ devise_migration = Dir.glob("db/migrate/*_devise_create_users.rb").to_s
 inject_into_file devise_migration, "\nt.confirmable\n", :before => "t.timestamps"
 
 
-
-application  <<-GENERATORS
+application <<-GENERATORS
 config.generators do |g|
   g.test_framework  :rspec, :fixture => false, :views => false
   g.fixture_replacement :factory_girl, :dir => "spec/support/factories"
@@ -94,8 +93,6 @@ end
 config.action_mailer.default_url_options = { :host => "localhost:3000" }
 
 GENERATORS
-
-
 
 
 rake 'db:migrate'
