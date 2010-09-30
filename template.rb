@@ -6,6 +6,10 @@ def base_app_url
   "http://github.com/danielvlopes/base_app/raw/master"
 end
 
+# bundler
+get_file 'Gemfile'
+run 'bundle install'
+
 # capistrano
 get_file "Capfile"
 get_file "config/deploy.rb"
@@ -68,12 +72,33 @@ get_file "lib/templates/rails/scaffold_controller/controller.rb"
 generate "rspec:install"
 generate "steak"
 
+
+# devise
+generate 'devise:install'
+generate 'devise User'
+generate 'devise:views'
+
+inject_into_file "app/models/user.rb", "\n:confirmable, ", :after => ":registerable,"
+
+devise_migration = Dir.glob("db/migrate/*_devise_create_users.rb").to_s
+inject_into_file devise_migration, "\nt.confirmable\n", :before => "t.timestamps"
+
+
+
 application  <<-GENERATORS
 config.generators do |g|
   g.test_framework  :rspec, :fixture => false, :views => false
   g.fixture_replacement :factory_girl, :dir => "spec/support/factories"
 end
+
+config.action_mailer.default_url_options = { :host => "localhost:3000" }
+
 GENERATORS
+
+
+
+
+rake 'db:migrate'
 
 # git
 

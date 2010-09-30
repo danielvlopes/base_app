@@ -5,6 +5,7 @@ gem 'rails', '3.0.0'
 gem 'menu_builder', '0.3.3'
 gem 'mysql2'
 gem 'capistrano'
+gem 'devise'
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
