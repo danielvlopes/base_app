@@ -72,6 +72,7 @@ get_file "lib/templates/rails/scaffold_controller/controller.rb"
 generate "rspec:install"
 generate "steak"
 
+get_file "spec/acceptance/support/helpers.rb"
 
 # devise
 generate 'devise:install'
