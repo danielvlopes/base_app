@@ -8,6 +8,7 @@ gem 'capistrano'
 gem 'devise'
 
 group :development, :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
   gem "rspec", "2.0.0"
   gem "rspec-rails", "2.0.1"
   gem 'ruby-debug'
