@@ -58,11 +58,11 @@ get_file "public/images/ua_sf.jpg"
 
 get "http://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
 
-run "mkdir public/javascripts/app public/javascripts/vendor"
+run "mkdir public/javascripts/app public/javascripts/common"
 
-get_file "public/javascripts/vendor/PIE.htc"
-get_file "public/javascripts/vendor/pngfix.js"
-get_file "public/javascripts/vendor/jquery.placeholder.js"
+get_file "public/javascripts/common/PIE.htc"
+get_file "public/javascripts/common/pngfix.js"
+get_file "public/javascripts/common/jquery.placeholder.js"
 
 # scaffold customization
 run "mkdir -p lib/templates/rails/scaffold_controller"
@@ -94,8 +94,6 @@ end
 config.action_mailer.default_url_options = { :host => "localhost:3000" }
 
 GENERATORS
-
-rake 'db:migrate'
 
 # git
 

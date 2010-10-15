@@ -6,6 +6,31 @@ Template for Rails 3.0 apps
 
 rails new app -m http://github.com/danielvlopes/base_app/raw/master/template.rb
 
+== Public folder strategy
+
+    public/javascripts
+    |-- README.md
+    |-- admin
+    | |-- date.js
+    | `-- datePicker.js
+    |-- common
+    | |-- application.js
+    | |-- jquery-1.3.2.js
+    | |-- jquery-ui-1.5.3.js
+    | |-- jquery.facebox.js
+    |-- superfolio
+    | |-- _plugins
+    | | |-- jquery.autocomplete.js
+    | | `-- jquery.truncate.js
+    | | `-- jquery.superfolio.toggle.js
+    | |-- application.js
+    | |-- blob.js
+      `-- commit.js
+
+* It allows to namespace specific files to specific layouts (admin, superfolio, etc) and share files between apps (common).
+* I can lay out files however I want within each of these namespaces, and reorganize them at will.
+* All jquery plugins should have jquery. and app specific plugins should be jquery.appname.pluginame.
+
 == License
 
 This project is released under the MIT License, including all CSS and design stuffs.
