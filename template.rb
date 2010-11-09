@@ -3,7 +3,7 @@ def get_file(file)
 end
 
 def base_app_url
-  "http://github.com/danielvlopes/base_app/raw/master"
+  "https://github.com/danielvlopes/base_app/raw/master"
 end
 
 # bundler
@@ -56,7 +56,7 @@ get_file "public/images/ua_ie.jpg"
 get_file "public/images/ua_op.jpg"
 get_file "public/images/ua_sf.jpg"
 
-get "http://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
+get "https://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
 
 run "mkdir public/javascripts/app public/javascripts/common"
 
