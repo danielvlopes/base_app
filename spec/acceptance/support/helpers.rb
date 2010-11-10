@@ -73,4 +73,4 @@ module BaseHelpers
   end
 end
 
-Rspec.configuration.include(Helpers)
+Rspec.configuration.include(BaseHelpers)
