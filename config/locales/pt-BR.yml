@@ -182,10 +182,11 @@ pt-BR:
 
   attributes:
     created_at: "Criado em"
-    updated_at: "Atulizado em"
+    updated_at: "Atualizado em"
 
   activerecord:
     errors:
       messages:
         taken: "já está em uso"
         record_invalid: "A validação falhou: %{errors}"
+
